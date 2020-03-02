@@ -1,0 +1,115 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/12/2020  01:33:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM FILES\VIEL\C51\BIN\BL51.EXE .\Objects\CODE.obj TO .\Objects\pckeyboard PRINT (.\Listings\pckeyboard.m51) RAMS
+>> IZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\CODE.obj (CODE)
+
+
+LINK MAP OF MODULE:  .\Objects\pckeyboard (CODE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0070H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\pckeyboard (CODE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CODE
+  C:0051H         SYMBOL        COMMAND
+  C:0067H         SYMBOL        DELAY
+  C:0048H         SYMBOL        HELLO
+  C:001FH         SYMBOL        HERE
+  C:0069H         SYMBOL        HOLD
+  C:006BH         SYMBOL        HOLD1
+  C:003AH         SYMBOL        NEWLINE
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  B:0098H.0       SYMBOL        RI
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  C:005CH         SYMBOL        SENT
+  C:001FH         SYMBOL        START
+  D:008DH         SYMBOL        TH1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0000H         LINE#         2
+  C:0003H         LINE#         3
+  C:0006H         LINE#         4
+  C:0009H         LINE#         5
+  C:000BH         LINE#         6
+  C:000DH         LINE#         8
+  C:000FH         LINE#         9
+  C:0011H         LINE#         10
+  C:0013H         LINE#         13
+  C:0015H         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2020  01:33:16  PAGE 2
+
+
+  C:0017H         LINE#         15
+  C:0019H         LINE#         18
+  C:001BH         LINE#         19
+  C:001DH         LINE#         20
+  C:001FH         LINE#         23
+  C:0022H         LINE#         24
+  C:0024H         LINE#         25
+  C:0027H         LINE#         26
+  C:0029H         LINE#         27
+  C:002BH         LINE#         28
+  C:002DH         LINE#         29
+  C:002FH         LINE#         30
+  C:0031H         LINE#         31
+  C:0033H         LINE#         32
+  C:0036H         LINE#         33
+  C:0038H         LINE#         34
+  C:003AH         LINE#         36
+  C:003DH         LINE#         37
+  C:0040H         LINE#         38
+  C:0042H         LINE#         39
+  C:0044H         LINE#         40
+  C:0046H         LINE#         41
+  C:0048H         LINE#         43
+  C:004BH         LINE#         44
+  C:004DH         LINE#         45
+  C:004FH         LINE#         46
+  C:0051H         LINE#         48
+  C:0053H         LINE#         49
+  C:0055H         LINE#         50
+  C:0057H         LINE#         51
+  C:0059H         LINE#         52
+  C:005BH         LINE#         53
+  C:005CH         LINE#         55
+  C:005EH         LINE#         56
+  C:0060H         LINE#         57
+  C:0062H         LINE#         58
+  C:0064H         LINE#         59
+  C:0066H         LINE#         60
+  C:0067H         LINE#         63
+  C:0069H         LINE#         65
+  C:006BH         LINE#         66
+  C:006DH         LINE#         67
+  C:006FH         LINE#         68
+  -------         ENDMOD        CODE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0070H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=112
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,114 @@
+A51 MACRO ASSEMBLER  CODE                                                                 02/12/2020 01:33:16 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\CODE.obj
+ASSEMBLER INVOKED BY: D:\Program Files\Viel\C51\BIN\A51.EXE CODE.ASM SET(SMALL) DEBUG PRINT(.\Listings\CODE.lst) OBJECT(
+                      .\Objects\CODE.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0
+0000 758920            2     MOV TMOD, #20H
+0003 758DFD            3     MOV TH1, #0FDH
+0006 759850            4     MOV SCON, #50H
+0009 D28E              5     SETB TR1
+000B C286              6     CLR P0.6
+                       7     
+000D 7438              8     MOV A,#38H
+000F 1151              9     ACALL COMMAND
+0011 1167             10     ACALL DELAY
+                      11     
+                      12     
+0013 740E             13     MOV A,#0EH
+0015 1151             14     ACALL COMMAND
+0017 1167             15     ACALL DELAY
+                      16     
+                      17     
+0019 7401             18     MOV A,#01H      
+001B 1151             19     ACALL COMMAND
+001D 1167             20     ACALL DELAY
+                      21     
+001F                  22             START:
+001F 3098FD           23             HERE: JNB RI,HERE
+0022 E599             24                     MOV A,SBUF
+0024 B40813           25             CJNE A,#08H,NEWLINE
+0027 7410             26             MOV A,#10H  
+0029 1151             27             ACALL COMMAND
+002B 7420             28             MOV A,#' '
+002D 115C             29             ACALL SENT
+002F 7410             30             MOV A,#10H
+0031 1151             31             ACALL COMMAND
+0033 759001           32             MOV P1,#1
+0036 C298             33             CLR RI
+0038 80E5             34             SJMP START
+003A                  35             NEWLINE:
+003A B40D0B           36             CJNE A,#0DH,HELLO
+003D 759002           37             MOV P1,#2
+0040 74C0             38             MOV A,#0C0H  
+0042 1151             39             ACALL COMMAND
+0044 C298             40             CLR RI
+0046 80D7             41             SJMP START
+0048                  42             HELLO:   
+0048 759003           43             MOV P1,#3
+004B 115C             44             ACALL SENT
+004D C298             45             CLR RI
+004F 80CE             46             SJMP START
+0051                  47             COMMAND:
+0051 F5A0             48                     MOV P2,A
+0053 C2B2             49                     CLR P3.2
+0055 D2B3             50                     SETB P3.3
+0057 1167             51                     ACALL DELAY
+0059 C2B3             52                     CLR P3.3
+005B 22               53                     RET
+005C                  54             SENT:
+005C F5A0             55                     MOV P2,A
+005E D2B2             56                     SETB P3.2
+0060 D2B3             57                     SETB P3.3
+A51 MACRO ASSEMBLER  CODE                                                                 02/12/2020 01:33:16 PAGE     2
+
+0062 1167             58                     ACALL DELAY
+0064 C2B3             59                     CLR P3.3
+0066 22               60                     RET
+                      61                     
+0067                  62             DELAY:
+0067 78FF             63             MOV R0,#255
+0069                  64             HOLD:
+0069 7914             65                     MOV R1,#20
+006B D9FE             66                     HOLD1:DJNZ R1,HOLD1
+006D D8FA             67                     DJNZ R0,HOLD
+006F 22               68                     RET
+                      69     END
+A51 MACRO ASSEMBLER  CODE                                                                 02/12/2020 01:33:16 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COMMAND. . . . . .  C ADDR   0051H   A   
+DELAY. . . . . . .  C ADDR   0067H   A   
+HELLO. . . . . . .  C ADDR   0048H   A   
+HERE . . . . . . .  C ADDR   001FH   A   
+HOLD . . . . . . .  C ADDR   0069H   A   
+HOLD1. . . . . . .  C ADDR   006BH   A   
+NEWLINE. . . . . .  C ADDR   003AH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SENT . . . . . . .  C ADDR   005CH   A   
+START. . . . . . .  C ADDR   001FH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

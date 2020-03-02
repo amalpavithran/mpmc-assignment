@@ -1,0 +1,3 @@
+".\Objects\CODE.obj" 
+TO ".\Objects\pckeyboard" 
+PRINT(".\Listings\pckeyboard.m51") RAMSIZE(256) 

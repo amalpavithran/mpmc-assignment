@@ -1,0 +1,58 @@
+A51 MACRO ASSEMBLER  EEE                                                                  02/13/2020 17:01:12 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\EEE.obj
+ASSEMBLER INVOKED BY: D:\Program Files\Viel\C51\BIN\A51.EXE EEE.ASM SET(SMALL) DEBUG PRINT(.\Listings\EEE.lst) OBJECT(.\
+                      Objects\EEE.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0
+0000 758915            2     STRT : MOV TMOD,#15H
+0003 D2B4              3            SETB P3.4
+0005 758A00            4                MOV TL0,#00H
+0008 758C00            5                MOV TH0,#00H
+000B 7B10              6                TIM1: MOV R3,#16
+000D 758B00            7                BACK : MOV TL1,#0
+0010 758D00            8                       MOV TH1,#0
+0013 D28E              9                               SETB TR1
+0015 D28C             10                               SETB TR0
+0017 308FFD           11                               CHECK : JNB TF1,CHECK
+001A C28F             12                                       CLR TF1
+001C DBEF             13                                               DJNZ R3,BACK
+001E E58A             14                                               MOV A,TL0
+0020 F5A0             15                                               MOV P2,A
+0022 E58C             16                                               MOV A,TH0
+0024 F590             17                                               MOV P1,A
+0026 80D8             18                                               SJMP STRT
+                      19        END
+A51 MACRO ASSEMBLER  EEE                                                                  02/13/2020 17:01:12 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   000DH   A   
+CHECK. . . . . . .  C ADDR   0017H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+STRT . . . . . . .  C ADDR   0000H   A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TIM1 . . . . . . .  C ADDR   000BH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

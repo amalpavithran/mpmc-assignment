@@ -1,0 +1,3 @@
+".\Objects\EEE.obj" 
+TO ".\Objects\frequencyread" 
+PRINT(".\Listings\frequencyread.m51") RAMSIZE(256) 

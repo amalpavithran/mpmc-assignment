@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  FREQUENCY                                                            02/13/2020 16:46:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\frequency.obj
+ASSEMBLER INVOKED BY: D:\Program Files\Viel\C51\BIN\A51.EXE frequency.asm SET(SMALL) DEBUG PRINT(.\Listings\frequency.ls
+                      t) OBJECT(.\Objects\frequency.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0
+                       2             
+                       3             
+0000 758951            4             MOV TMOD,#51H
+0003 D2B5              5             SETB P3.5
+0005                   6             START:
+0005 758D00            7                     MOV TH1,#00H
+0008 758B00            8                     MOV TL1,#00H
+000B D28E              9                     SETB TR1
+000D 1111             10                     ACALL DELAY
+000F 80F4             11                     SJMP START
+                      12                     
+0011                  13                     DELAY:
+0011 7810             14                             MOV R0,#16
+0013 758C00           15                             HERE2:MOV TH0,#0
+0016 758A00           16                             MOV TL0,#0
+0019 D28C             17                             SETB TR0
+001B 308DFD           18                             HERE: JNB TF0,HERE
+001E C28F             19                             CLR TF1
+0020 D8F1             20                             DJNZ R0,HERE2
+0022 C28C             21                             CLR TR0
+0024 C28E             22                             CLR TR1
+0026 E58B             23                             MOV A,TL1
+0028 F5A0             24                             MOV P2,A
+002A E58D             25                             MOV A,TH1
+002C F590             26                             MOV P1,A
+002E 22               27                             RET
+                      28      END
+A51 MACRO ASSEMBLER  FREQUENCY                                                            02/13/2020 16:46:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0011H   A   
+HERE . . . . . . .  C ADDR   001BH   A   
+HERE2. . . . . . .  C ADDR   0013H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0005H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

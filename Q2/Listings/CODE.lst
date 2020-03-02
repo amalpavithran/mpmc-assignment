@@ -1,0 +1,72 @@
+A51 MACRO ASSEMBLER  CODE                                                                 02/12/2020 23:49:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\CODE.obj
+ASSEMBLER INVOKED BY: D:\Program Files\Viel\C51\BIN\A51.EXE CODE.ASM SET(SMALL) DEBUG PRINT(.\Listings\CODE.lst) OBJECT(
+                      .\Objects\CODE.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0
+0000 7590FF            2             MOV P1,#0FFH
+0003 209010            3             START:JB P1.0,SP1
+0006 209111            4             JB P1.1,SP2
+0009 209212            5             JB P1.2,SP3
+000C 209313            6             JB P1.3,SP4
+000F 209414            7             JB P1.4,SP5
+0012                   8             SP0:
+0012 C2A0              9                     CLR P2.0
+0014 80ED             10                     SJMP START
+0016                  11                     SP1:
+0016 7833             12                     MOV R0,#51
+0018 8010             13                     SJMP PWM
+001A                  14                     SP2:
+001A 7866             15                     MOV R0,#102
+001C 800C             16                     SJMP PWM
+001E                  17                     SP3:
+001E 7899             18                     MOV R0,#153
+0020 8008             19                     SJMP PWM
+0022                  20                     SP4:
+0022 78CC             21                     MOV R0,#204
+0024 8004             22                     SJMP PWM
+0026                  23                     SP5:
+0026 D2A0             24                     SETB P2.0
+0028 80D9             25                     SJMP START
+                      26                     
+002A                  27                     PWM:
+002A 74FF             28                     MOV A,#0FFH
+002C 98               29                     SUBB A,R0
+002D F9               30                     MOV R1,A
+002E D2A0             31                     SETB P2.0
+0030 D8FE             32                     HERE: DJNZ R0,HERE
+0032 C2A0             33                     CLR P2.0
+0034 D9FE             34                     HERE2: DJNZ R1,HERE2
+0036 80CB             35                     SJMP START
+                      36     END
+A51 MACRO ASSEMBLER  CODE                                                                 02/12/2020 23:49:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE . . . . . . .  C ADDR   0030H   A   
+HERE2. . . . . . .  C ADDR   0034H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PWM. . . . . . . .  C ADDR   002AH   A   
+SP0. . . . . . . .  C ADDR   0012H   A   
+SP1. . . . . . . .  C ADDR   0016H   A   
+SP2. . . . . . . .  C ADDR   001AH   A   
+SP3. . . . . . . .  C ADDR   001EH   A   
+SP4. . . . . . . .  C ADDR   0022H   A   
+SP5. . . . . . . .  C ADDR   0026H   A   
+START. . . . . . .  C ADDR   0003H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
